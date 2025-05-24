@@ -1,9 +1,9 @@
-function RegularIcon({ icon }) {
+const RegularIcon = ({ IconName, link }) => {
   return (
-    <div className="icon-wrapper">
-      <span className="material-icons">{icon}</span>
-    </div>
+    <a href={link ? link : null} target="_blank">
+      <IconName className="ft-icon" />
+    </a>
   );
-}
+};
 
 export default RegularIcon;

@@ -1,23 +1,41 @@
-import PostTools from "./PostTools";
+import { BiDotsVerticalRounded } from "react-icons/bi";
+import ProfileImg from "./ProfileImg";
 import "../css/post.css";
-
+import PostTools from "./PostTools";
 function Post() {
   return (
-    <div className="post">
+    <div className="post max-w-full">
       <div className="author-appearance">
         <div className="profile-wrapper">
+          <ProfileImg size={"40px"} />
+
           <div className="user-info">
-            <strong>Username</strong>
-            <p>@username</p>
+            <h5>Osama Hussein</h5>
+            <p>
+              Mathematics - <span>2h ago</span>
+            </p>
           </div>
         </div>
+
+        <BiDotsVerticalRounded />
       </div>
+
       <div className="post-content">
-        <h4 className="heading-post">Post Title</h4>
-        <p className="content-msg">
-          This is a post content section styled from your original CSS.
-        </p>
+        <div className="heading-post">
+          <h4>Quadratic Fourmula Explained</h4>
+        </div>
+
+        <div className="content-msg">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa,
+            omnis facere molestias quisquam fugit corporis excepturi natus
+            assumenda sint! Perspiciatis at odit necessitatibus fugiat quos,
+            nihil praesentium ipsa temporibus cupiditate accusamus facere
+            dolore, delectus molestiae iste optio magnam eveniet illo voluptas
+          </p>
+        </div>
       </div>
+
       <PostTools />
     </div>
   );
