@@ -2,6 +2,7 @@ import Content from "../components/Content";
 import SideBar from "../components/SideBar";
 import SideList from "../components/SideList";
 import Suggestions from "../components/Suggestions";
+import Follow from "../components/Follow";
 import "../css/home.css";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         <Content />
         <div className="w-full lg:w-[250px]">
           <Suggestions />
+          <Follow />
         </div>
       </div>
     </div>
