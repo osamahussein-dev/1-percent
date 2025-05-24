@@ -1,5 +1,7 @@
-.sidebar-container {
-  width: 240px;
-  padding: 16px;
-  background-color: #e9ecef;
+aside {
+  padding: 5px;
+  padding-top: 0;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }

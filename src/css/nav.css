@@ -1,35 +1,74 @@
-.main-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+header {
+  background-color: #fff;
+  box-shadow: 0px 1px 4px #00000017;
 }
 
-.container-header {
+nav {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0 4%;
+}
+
+nav .logo-bar {
+  display: flex;
   align-items: center;
 }
 
-.header-links {
+nav .logo-bar img {
+  max-height: 90px;
+  margin: -4px 0;
+}
+nav .icons {
   display: flex;
+  gap: 16px;
+}
+
+nav .profile-tools {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
   gap: 20px;
-  list-style: none;
 }
 
-.header-links li a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-}
-
-.icons-holder {
-  display: flex;
-  gap: 12px;
-}
-
-.icon-wrapper {
+.header-icon {
+  font-size: 20px;
   cursor: pointer;
-  font-size: 18px;
-  color: #333;
+}
+
+nav .profile-tools .profile-photo {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+nav .profile-tools .profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+nav .logo-bar .search-bar {
+  position: relative;
+  box-shadow: 1px 1px 8px #00000017;
+  border: 1px solid rgb(187, 187, 187);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+nav .logo-bar .search-bar input {
+  padding: 10px 20px;
+  padding-left: 50px;
+}
+
+nav .logo-bar .search-bar .icon-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

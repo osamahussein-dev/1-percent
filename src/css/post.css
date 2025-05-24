@@ -1,6 +1,36 @@
 .post {
-  background-color: #fff;
-  padding: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  box-shadow: 0 0 1px #00000018;
+  border-radius: 10px;
+  padding: 14px;
+  position: relative;
+}
+
+.post .author-appearance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post .author-appearance .profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.post .author-appearance .profile-wrapper .user-info p {
+  color: gray;
+}
+
+.post .post-content {
+  margin: 24px 0;
+  width: 95%;
+}
+
+.post .post-content .heading-post {
+  margin: 10px 0;
+}
+
+.post .post-content .content-msg {
+  color: rgb(46, 46, 46);
 }

@@ -1,11 +1,24 @@
 .side-list {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+  background-color: #fff;
+  box-shadow: 0 0 1px #00000018;
+  width: 100%;
+  border-radius: 8px;
 }
 
-.side-list-item {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+.side-list .selector-list ul li {
+  display: flex;
+  padding: 20px 10px;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
   cursor: pointer;
+}
+
+.side-list .selector-list {
+  font-weight: bold;
+  padding: 8px;
+}
+
+.icon-style {
+  font-size: 20px;
 }

@@ -4,8 +4,9 @@ import "../css/content.css";
 
 function Content() {
   return (
-    <main className="flex flex-col items-center gap-[40px]">
+    <main className="w-[100%] lg:w-1/2">
       <PostField />
+      <Post />
       <Post />
       <Post />
     </main>

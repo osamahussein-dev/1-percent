@@ -1,9 +1,77 @@
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  background-color: #f5f5f5;
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    accent-color: black;
+  }
+
+  .container {
+    @apply lg:max-w-[1520px] max-w-[90%];
+    margin: 0 auto;
+  }
+
+  body {
+    background: #f3f4f6;
+  }
+
+  button {
+    cursor: pointer;
+  }
+  img {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  input {
+    border: none;
+    outline: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  input {
+    outline: none;
+    border: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+  label {
+    user-select: none;
+  }
+  .all-web {
+    position: relative;
+  }
+
+  a:visited {
+    color: none;
+  }
+
+  a {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .active {
+    color: rgb(214, 151, 151);
+    transition: 0.3s ease;
+  }
 }
 
-.home-container {
-  padding: 32px;
+@layer utilities {
+  .flex-center {
+    @apply justify-center items-center flex;
+  }
 }
