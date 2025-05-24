@@ -1,0 +1,9 @@
+.main-home {
+  padding: 50px 0;
+}
+
+.main-home .container-home {
+  display: flex;
+  padding: 0 1%;
+  gap: 30px;
+}

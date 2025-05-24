@@ -1,0 +1,11 @@
+.side-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.side-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
