@@ -1,25 +1,24 @@
 import Content from "../components/Content";
+import Follow from "../components/Follow";
 import SideBar from "../components/SideBar";
 import SideList from "../components/SideList";
 import Suggestions from "../components/Suggestions";
-import Follow from "../components/Follow";
 import "../css/home.css";
-
-const Home = () => {
+function Home() {
   return (
     <div className="main-home">
-      <div className="container container-home flex flex-col lg:flex-row gap-6">
+      <div className="container container-home flex-col lg:flex-row">
         <SideBar>
           <SideList />
         </SideBar>
         <Content />
-        <div className="w-full lg:w-[250px]">
+        <SideBar>
           <Suggestions />
           <Follow />
-        </div>
+        </SideBar>
       </div>
     </div>
   );
-};
+}
 
 export default Home;
