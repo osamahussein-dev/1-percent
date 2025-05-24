@@ -8,6 +8,9 @@ function NavBar() {
       <ul className="navbar-links">
         <li>
           <Link to="/">Home</Link>
+          <li>
+            <Link to="/explore">Explore</Link>
+          </li>
         </li>
       </ul>
     </nav>
