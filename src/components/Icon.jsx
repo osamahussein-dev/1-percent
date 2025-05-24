@@ -1,7 +1,13 @@
-function Icon({ name }) {
+const Icon = ({ FilledIcon, OutlinedIcon, isActive, onClick }) => {
   return (
-    <span className="material-icons text-[22px] cursor-pointer">{name}</span>
+    <div className="icon" onClick={onClick}>
+      {isActive ? (
+        <FilledIcon className="header-icon" />
+      ) : (
+        <OutlinedIcon className="header-icon" />
+      )}
+    </div>
   );
-}
+};
 
 export default Icon;

@@ -1,21 +1,77 @@
-import HeaderLinks from "./HeaderLinks";
-import TLIcon from "./TLIcon";
-import RegularIcon from "./RegularIcon";
 import "../css/nav.css";
+import { useState } from "react";
+import {
+  HiHome,
+  HiOutlineHome,
+  HiBookmark,
+  HiOutlineBookmark,
+  HiBell,
+  HiOutlineBell,
+} from "react-icons/hi";
+import Icon from "./Icon";
+import { useLocation } from "react-router-dom";
+import { BiSearch } from "react-icons/bi";
+import ProfileImg from "./ProfileImg";
+import HeaderLinks from "./headerLinks";
 
 function NavBar() {
+  const [active, setActive] = useState("home");
+  const location = useLocation();
+  const url = ["/explore", "/mycards", "home"];
+  const conditionalLoc = url.includes(location.pathname);
   return (
-    <div className="main-header">
+    <header>
       <div className="container container-header">
-        <TLIcon />
-        <HeaderLinks />
-        <div className="icons-holder">
-          <RegularIcon icon="search" />
-          <RegularIcon icon="notification" />
-          <RegularIcon icon="profile" />
-        </div>
+        <nav>
+          <div className="logo-bar">
+            <img
+              src="/1percent.png"
+              alt="logo"
+              className="w-[60px] md:w-[100px]"
+            />
+
+            {conditionalLoc ? (
+              <div className="gap-4 hidden md:flex">
+                <HeaderLinks path={"/home"} LinkName={"Home"} />
+                <HeaderLinks path={"/explore"} LinkName={"Explore"} />
+                <HeaderLinks path={"/mycards"} LinkName={"My Cards"} />
+              </div>
+            ) : (
+              <div className="search-bar hidden md:inline-block">
+                <input type="text" placeholder="Type What You Want" />
+                <div className="icon-cover">
+                  <BiSearch className="search-icon" />
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="profile-tools">
+            <div className="icons">
+              <Icon
+                FilledIcon={HiHome}
+                OutlinedIcon={HiOutlineHome}
+                isActive={active === "home"}
+                onClick={() => setActive("home")}
+              />
+              <Icon
+                FilledIcon={HiBell}
+                OutlinedIcon={HiOutlineBell}
+                isActive={active === "notif"}
+                onClick={() => setActive("notif")}
+              />
+              <Icon
+                FilledIcon={HiBookmark}
+                OutlinedIcon={HiOutlineBookmark}
+                isActive={active === "saved"}
+                onClick={() => setActive("saved")}
+              />
+            </div>
+
+            <ProfileImg size={"30px"} />
+          </div>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 }
 
