@@ -1,14 +1,16 @@
+import Content from "../components/Content";
 import SideBar from "../components/SideBar";
+import "../css/home.css";
 
-function Home() {
+const Home = () => {
   return (
-    <div style={{ display: "flex" }}>
-      <SideBar />
-      <div style={{ flex: 1, padding: "20px" }}>
-        <h1>Home Page</h1>
+    <div className="main-home">
+      <div className="container container-home flex-col lg:flex-row">
+        <SideBar />
+        <Content />
       </div>
     </div>
   );
-}
+};
 
 export default Home;
