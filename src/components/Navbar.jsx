@@ -12,7 +12,7 @@ import Icon from "./Icon";
 import { useLocation } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import ProfileImg from "./ProfileImg";
-import HeaderLinks from "./headerLinks";
+import HeaderLinks from "./HeaderLinks";
 
 function NavBar() {
   const [active, setActive] = useState("home");
