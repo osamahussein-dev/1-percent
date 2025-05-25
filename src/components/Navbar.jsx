@@ -3,8 +3,6 @@ import { useState } from "react";
 import {
   HiHome,
   HiOutlineHome,
-  HiBookmark,
-  HiOutlineBookmark,
   HiBell,
   HiOutlineBell,
 } from "react-icons/hi";
@@ -19,7 +17,7 @@ function NavBar() {
   const [active, setActive] = useState("home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const url = ["/explore", "/mycards", "/profile"];
+  const url = ["/explore", "/profile"];
   const conditionalLoc = url.includes(location.pathname);
 
   function toggleDropdown() {
@@ -41,7 +39,6 @@ function NavBar() {
               <div className="gap-4 hidden md:flex">
                 <HeaderLinks path={"/home"} LinkName={"Home"} />
                 <HeaderLinks path={"/explore"} LinkName={"Explore"} />
-                <HeaderLinks path={"/mycards"} LinkName={"My Cards"} />
               </div>
             ) : (
               <div className="search-bar hidden md:inline-block">
@@ -66,12 +63,6 @@ function NavBar() {
                 OutlinedIcon={HiOutlineBell}
                 isActive={active === "notif"}
                 onClick={() => setActive("notif")}
-              />
-              <Icon
-                FilledIcon={HiBookmark}
-                OutlinedIcon={HiOutlineBookmark}
-                isActive={active === "saved"}
-                onClick={() => setActive("saved")}
               />
             </div>
 

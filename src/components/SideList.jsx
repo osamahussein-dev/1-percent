@@ -2,7 +2,6 @@ import "../css/sidelist.css";
 import { HiHome } from "react-icons/hi";
 import ListItems from "./ListItems";
 import { MdExplore, MdTopic } from "react-icons/md";
-import { LuBookMarked } from "react-icons/lu";
 
 function SideList() {
   return (
@@ -18,10 +17,7 @@ function SideList() {
             </a>
           </ListItems>
           <ListItems Icon={MdTopic}>
-            <p>My Topics</p>
-          </ListItems>
-          <ListItems Icon={LuBookMarked}>
-            <p>Saved Cards</p>
+            <p>Topics List</p>
           </ListItems>
         </ul>
       </div>
