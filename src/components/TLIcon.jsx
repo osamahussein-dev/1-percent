@@ -1,7 +1,7 @@
-function TLIcon() {
+function TLIcon({ Icon }) {
   return (
-    <div className="tl-icon">
-      <span className="text-xl font-bold">1%</span>
+    <div className="tlicon">
+      <Icon />
     </div>
   );
 }

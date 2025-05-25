@@ -1,12 +1,7 @@
-import SideList from "./SideList";
 import "../css/sidebar.css";
 
-function SideBar() {
-  return (
-    <div className="sidebar-container">
-      <SideList />
-    </div>
-  );
-}
+const SideBar = ({ children }) => {
+  return <aside className="w-[100%] lg:w-[25%]">{children}</aside>;
+};
 
 export default SideBar;
