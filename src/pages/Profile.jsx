@@ -1,47 +1,52 @@
-import ProfileHeader from "../components/ProfileHeader";
-import ProfileCard from "../components/ProfileCard";
+import { useParams, Navigate } from "react-router-dom";
+import NotFound from "./NotFound";
+import UserProfile from "../components/UserProfile";
 
 function Profile() {
-  const cards = [
-    {
-      category: "Mathematics",
-      title: "Quadratic Equations Simplified",
-      description: "ipsum dolor sit amet consectetur adipisicing elit. Sint cupiditate voluptates tenetur at amet facilis debitis accusamus et asperiores sapiente, praesentium, magnam quo cum ad corrupti! Fugiat sed quasi impedit.",
-      date: "Apr 15, 2023",
-      views: 24,
-      comments: 8
+  const { username } = useParams();
+  
+  const users = {
+    "osama.h": {
+      name: "Osama Hussein",
+      username: "@osama.h",
+      bio: "Programmer | Web Developer",
+      stats: {
+        cards: 3,
+        followers: 100,
+        following: 100
+      }
     },
-    {
-      category: "Algebra",
-      title: "Linear Functions Made Easy",
-      description: "ipsum dolor sit amet consectetur adipisicing elit. Sint cupiditate voluptates tenetur at amet facilis debitis accusamus et asperiores sapiente, praesentium, magnam quo cum ad corrupti! Fugiat sed quasi impedit.",
-      date: "Apr 12, 2023",
-      views: 18,
-      comments: 5
+    "mohammed.h": {
+      name: "Mohammed Hussein",
+      username: "@mohammed.h",
+      bio: "Mathematics Teacher | Education Enthusiast",
+      stats: {
+        cards: 5,
+        followers: 150,
+        following: 80
+      }
     },
-    {
-      category: "Geometry",
-      title: "Circle Theorems Explained",
-      description: "ipsum dolor sit amet consectetur adipisicing elit. Sint cupiditate voluptates tenetur at amet facilis debitis accusamus et asperiores sapiente, praesentium, magnam quo cum ad corrupti! Fugiat sed quasi impedit.",
-      date: "Apr 10, 2023",
-      views: 32,
-      comments: 12
+    "anas.h": {
+      name: "Anas Hussein",
+      username: "@anas.h",
+      bio: "Physics Expert | Science Communicator",
+      stats: {
+        cards: 7,
+        followers: 200,
+        following: 120
+      }
     }
-  ];
+  };
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <ProfileHeader />
-      
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cards.map((card, index) => (
-            <ProfileCard key={index} {...card} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  if (username === "osama.h") {
+    return <Navigate to="/profile" replace />;
+  }
+
+  if (username && !users[username]) {
+    return <NotFound />;
+  }
+
+  return <UserProfile username={username} users={users} />;
 }
 
 export default Profile; 
