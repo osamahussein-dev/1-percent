@@ -1,17 +1,6 @@
 import ProfileImg from "./ProfileImg";
 
-function ProfileHeader() {
-  const userData = {
-    name: "Osama Hussein",
-    username: "@osama.h",
-    bio: "Programmer | Web Developer",
-    stats: {
-      cards: 3,
-      followers: 100,
-      following: 100
-    }
-  };
-
+function ProfileHeader({ userData, isOwnProfile }) {
   return (
     <div className="w-full bg-white shadow">
       <div className="container mx-auto px-4 py-8">
@@ -20,7 +9,7 @@ function ProfileHeader() {
             <div className="w-24 h-24">
               <ProfileImg size="96px" />
             </div>
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left flex-1">
               <h1 className="text-2xl font-bold text-gray-800">{userData.name}</h1>
               <p className="text-gray-600 mt-1">{userData.username}</p>
               <p className="text-gray-700 mt-2">{userData.bio}</p>
@@ -39,6 +28,16 @@ function ProfileHeader() {
                 </div>
               </div>
             </div>
+            {!isOwnProfile && (
+              <div className="flex gap-4">
+                <button className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                  Follow
+                </button>
+                <button className="px-6 py-2 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
+                  Message
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
