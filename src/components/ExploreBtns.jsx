@@ -1,9 +1,17 @@
+import SelectingBtn from "./SelectingBtn";
+
 function ExploreBtns() {
   return (
-    <div className="explore-buttons">
-      <button>Programming</button>
-      <button>Mathmatics</button>
-      <button>Science</button>
+    <div className="flex justify-center lg:justify-start flex-wrap gap-2">
+      <SelectingBtn
+        title={[
+          "Programming",
+          "Mathematics",
+          "Science",
+          "Languages",
+          "History",
+        ]}
+      />
     </div>
   );
 }
