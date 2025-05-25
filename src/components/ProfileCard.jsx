@@ -7,9 +7,6 @@ function ProfileCard({ category, title, description, date, views, comments }) {
           <h3 className="font-semibold mt-2">{title}</h3>
           <p className="text-sm text-gray-600 mt-2">{description}</p>
         </div>
-        <button className="text-gray-400 hover:text-gray-600">
-          <span className="material-icons">bookmark_border</span>
-        </button>
       </div>
       <div className="flex items-center justify-between mt-4 text-sm text-gray-500">
         <span>{date}</span>

@@ -8,8 +8,6 @@ function ExploreUpper() {
         <div>
           <h2 className="font-[700]">Popular Topics</h2>
         </div>
-
-        <a> View All </a>
       </div>
 
       <ExploreBtns />
