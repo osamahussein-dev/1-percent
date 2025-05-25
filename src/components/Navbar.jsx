@@ -19,7 +19,7 @@ function NavBar() {
   const [active, setActive] = useState("home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const url = ["/explore", "/mycards", "home"];
+  const url = ["/explore", "/mycards", "/profile"];
   const conditionalLoc = url.includes(location.pathname);
 
   function toggleDropdown() {
