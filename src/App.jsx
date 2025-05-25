@@ -1,17 +1,20 @@
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "./css/master.css";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 
 function App() {
   return (
-    <div>
+    <div className="all-web">
       <NavBar />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-      </Routes>
+      <div style={{ minHeight: "100vh" }}>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

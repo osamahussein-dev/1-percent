@@ -1,12 +1,29 @@
 import "../css/sidelist.css";
+import { HiHome } from "react-icons/hi";
+import ListItems from "./ListItems";
+import { MdExplore, MdTopic } from "react-icons/md";
+import { LuBookMarked } from "react-icons/lu";
 
 function SideList() {
   return (
-    <ul className="side-list">
-      <li className="side-list-item">Home</li>
-      <li className="side-list-item">Explore</li>
-      <li className="side-list-item">Settings</li>
-    </ul>
+    <div className="side-list">
+      <div className="selector-list">
+        <ul>
+          <ListItems Icon={HiHome}>
+            <p>Home</p>
+          </ListItems>
+          <ListItems Icon={MdExplore}>
+            <p>Explore</p>
+          </ListItems>
+          <ListItems Icon={MdTopic}>
+            <p>My Topics</p>
+          </ListItems>
+          <ListItems Icon={LuBookMarked}>
+            <p>Saved Cards</p>
+          </ListItems>
+        </ul>
+      </div>
+    </div>
   );
 }
 
