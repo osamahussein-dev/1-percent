@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import "./css/master.css";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

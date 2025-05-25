@@ -13,12 +13,19 @@ import { useLocation } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import ProfileImg from "./ProfileImg";
 import HeaderLinks from "./HeaderLinks";
+import ProfileDropdown from "./ProfileDropdown";
 
 function NavBar() {
   const [active, setActive] = useState("home");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
   const url = ["/explore", "/mycards", "home"];
   const conditionalLoc = url.includes(location.pathname);
+
+  function toggleDropdown() {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <header>
       <div className="container container-header">
@@ -45,6 +52,7 @@ function NavBar() {
               </div>
             )}
           </div>
+
           <div className="profile-tools">
             <div className="icons">
               <Icon
@@ -67,7 +75,13 @@ function NavBar() {
               />
             </div>
 
-            <ProfileImg size={"30px"} />
+            <div style={{ position: 'relative' }}>
+              <ProfileImg size={"30px"} onClick={toggleDropdown} />
+              <ProfileDropdown 
+                isOpen={isDropdownOpen} 
+                onClose={() => setIsDropdownOpen(false)} 
+              />
+            </div>
           </div>
         </nav>
       </div>

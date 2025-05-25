@@ -13,7 +13,9 @@ function SideList() {
             <p>Home</p>
           </ListItems>
           <ListItems Icon={MdExplore}>
-            <p>Explore</p>
+            <a href="/explore">
+              <p>Explore</p>
+            </a>
           </ListItems>
           <ListItems Icon={MdTopic}>
             <p>My Topics</p>
