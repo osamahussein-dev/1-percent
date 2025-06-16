@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./css/master.css";
@@ -6,13 +6,23 @@ import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
+  const location = useLocation();
+  const hideNavOn = ["/", "/signin", "/signup"];
+  const shouldShowNav = !hideNavOn.includes(location.pathname);
+  console.log(location.pathname);
+
   return (
     <div className="all-web">
-      <NavBar />
+      {shouldShowNav && <NavBar />}
       <div style={{ minHeight: "100vh" }}>
         <Routes>
+          <Route path="/" index element={<SignIn />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
@@ -20,7 +30,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      <Footer />
+      {shouldShowNav && <Footer />}
     </div>
   );
 }
