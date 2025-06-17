@@ -7,7 +7,7 @@ function ProfileHeader({ userData, isOwnProfile }) {
         <div className="flex flex-col items-center md:flex-row gap-6">
           <div className="flex flex-col items-center md:flex-row gap-6 flex-1">
             <div className="w-24 h-24">
-              <ProfileImg size="96px" />
+              <ProfileImg size="96px" id={userData.id} />
             </div>
             <div className="text-center md:text-left flex-1">
               <h1 className="text-2xl font-bold text-gray-800">{userData.name}</h1>
@@ -15,15 +15,15 @@ function ProfileHeader({ userData, isOwnProfile }) {
               <p className="text-gray-700 mt-2">{userData.phone}</p>
               <div className="flex items-center justify-center md:justify-start gap-8 mt-4">
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.cards_count}</div>
+                  <div className="font-bold text-gray-800">{userData.stats?.cards_count}</div>
                   <div className="text-sm text-gray-600">Cards</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.followers_count}</div>
+                  <div className="font-bold text-gray-800">{userData.stats?.followers_count}</div>
                   <div className="text-sm text-gray-600">Followers</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.following_count}</div>
+                  <div className="font-bold text-gray-800">{userData.stats?.following_count}</div>
                   <div className="text-sm text-gray-600">Following</div>
                 </div>
               </div>

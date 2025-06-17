@@ -27,7 +27,7 @@ function Post({ post }) {
     <div className="post w-full">
       <div className="author-appearance">
         <div className="profile-wrapper">
-          <ProfileImg size={"40px"} />
+          <ProfileImg size={"40px"} id={post?.author_id} />
 
           <div className="user-info">
             <h5>{post?.author_name}</h5>
@@ -52,7 +52,7 @@ function Post({ post }) {
         </div>
       </div>
 
-      <PostTools />
+      <PostTools postId={post?.id} />
     </div>
   );
 }
