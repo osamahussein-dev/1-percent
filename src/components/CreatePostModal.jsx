@@ -1,23 +1,24 @@
 import { useState } from "react";
 import ProfileImg from "./ProfileImg";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import api from "../api";
+import queryClient from "../queryClient";
 
 function CreatePostModal({ isOpen, onClose }) {
+  console.log();
+  const { data: topics = [] } = useQuery({
+    queryKey: ["topics"],
+    queryFn: () => api.get("/topics"),
+  });
+
+  const { mutateAsync: createPost, isPending, isError, error } = useMutation({
+    mutationFn: (postData) => api.post("/posts", postData),
+  })
   const [postData, setPostData] = useState({
     title: "",
     content: "",
     topic: ""
   });
-
-  const topics = [
-    "Mathematics",
-    "Physics",
-    "Chemistry",
-    "Biology",
-    "Computer Science",
-    "Literature",
-    "History",
-    "Art"
-  ];
 
   const handleChange = (e) => {
     setPostData({
@@ -26,9 +27,21 @@ function CreatePostModal({ isOpen, onClose }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onClose();
+    try {
+      const author_id = JSON.parse(localStorage.getItem("user")).id;
+      await createPost({
+        author_id,
+        title: postData.title,
+        body: postData.content,
+        topic_id: postData.topic,
+      });
+      queryClient.invalidateQueries({ queryKey: ["posts"] });
+      onClose();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   if (isOpen) return (
@@ -63,8 +76,8 @@ function CreatePostModal({ isOpen, onClose }) {
           >
             <option value="">Select a topic</option>
             {topics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
+              <option key={topic.id} value={topic.id}>
+                {topic.name}
               </option>
             ))}
           </select>
