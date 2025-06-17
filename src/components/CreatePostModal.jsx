@@ -3,9 +3,10 @@ import ProfileImg from "./ProfileImg";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import api from "../api";
 import queryClient from "../queryClient";
+import { jsonParse } from "../helpers";
 
 function CreatePostModal({ isOpen, onClose }) {
-  console.log();
+  const loggedInUser = jsonParse(localStorage.getItem("user"));
   const { data: topics = [] } = useQuery({
     queryKey: ["topics"],
     queryFn: () => api.get("/topics"),
@@ -50,7 +51,7 @@ function CreatePostModal({ isOpen, onClose }) {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <ProfileImg size="46px" />
+            <ProfileImg size="46px" id={loggedInUser?.id} />
             <h2 className="text-xl font-semibold">Create Post</h2>
           </div>
           <button

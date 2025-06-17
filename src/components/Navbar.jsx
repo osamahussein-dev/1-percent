@@ -79,7 +79,7 @@ function NavBar() {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center focus:outline-none"
               >
-                <ProfileImg size={"32px"} />
+                <ProfileImg size={"32px"} id={loggedInUser?.id} />
               </button>
               
               {isDropdownOpen && (
