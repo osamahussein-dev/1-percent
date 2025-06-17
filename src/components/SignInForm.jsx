@@ -1,11 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import api from "../api";
 import "../css/Form.css";
 
 function SignInForm() {
-  function signIn() {
-    const navigate = useNavigate();
-    navigate("/signIn");
-  }
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await api.post("/auth/login", form);
+      localStorage.setItem("user", JSON.stringify(data));
+      navigate("/home");
+    } catch (err) {
+      const msg = err.response?.data?.message;
+      setError(msg);
+    }
+  };
+
   return (
     <div className="sign-container">
       <div className="form-container">
@@ -14,28 +31,31 @@ function SignInForm() {
           <p>Sign in to your account</p>
 
           <div className="form-tabs">
-            <button onClick={signIn} className="active-tab">
-              Sign In
-            </button>
+            <button className="active-tab">Sign In</button>
             <Link to="/signup">Sign Up</Link>
           </div>
-
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                type="email"
                 id="email"
-                placeholder="you@gmail.com"
+                name="email"
+                type="email"
+                placeholder="example@gmail.com"
+                value={form.email}
+                onChange={handleChange}
                 required
               />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
-                type="password"
                 id="password"
-                placeholder="•••••••••••"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -54,6 +74,8 @@ function SignInForm() {
               Sign In
             </button>
           </form>
+
+          {error && <p className="error-msg">{error}</p>}
 
           <div className="divider">
             <span>Or continue with</span>
