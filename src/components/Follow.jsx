@@ -13,6 +13,10 @@ function Follow() {
       <ListItems>
         <FollowCard name={"Osama Hussein"} role={"Programmer"} />
       </ListItems>
+
+      <ListItems>
+        <FollowCard name={"Osama Hussein"} role={"Programmer"} />
+      </ListItems>
     </SideCards>
   );
 }

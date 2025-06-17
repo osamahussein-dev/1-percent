@@ -8,17 +8,12 @@ function SideList() {
     <div className="side-list">
       <div className="selector-list">
         <ul>
-          <ListItems Icon={HiHome}>
-            <p>Home</p>
-          </ListItems>
-          <ListItems Icon={MdExplore}>
-            <a href="/explore">
-              <p>Explore</p>
-            </a>
-          </ListItems>
-          <ListItems Icon={MdTopic}>
-            <p>Topics List</p>
-          </ListItems>
+          <ListItems title="Home" Icon={HiHome} href="/home"/>
+            
+          <ListItems title="Explore" Icon={MdExplore} href="/explore"/>
+
+          <ListItems title="Topics List" Icon={MdTopic} href="/topics"/>
+            
         </ul>
       </div>
     </div>

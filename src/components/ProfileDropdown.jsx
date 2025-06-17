@@ -28,13 +28,6 @@ function ProfileDropdown({ isOpen, onClose }) {
             <span className="material-icons text-gray-500 mr-3 text-xl">settings</span>
             Settings
           </Link>
-          <Link 
-            to="/help" 
-            className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
-          >
-            <span className="material-icons text-gray-500 mr-3 text-xl">help</span>
-            Help
-          </Link>
           <button 
             onClick={onClose} 
             className="flex items-center w-full px-4 py-3 text-sm text-red-600 hover:bg-gray-50 cursor-pointer"

@@ -1,77 +1,73 @@
-import "../css/nav.css";
 import { useState } from "react";
-import {
-  HiHome,
-  HiOutlineHome,
-  HiBell,
-  HiOutlineBell,
-} from "react-icons/hi";
+import { Link, useLocation } from "react-router-dom";
+import { HiHome, HiOutlineHome, HiSearch, HiOutlineSearch } from "react-icons/hi";
 import Icon from "./Icon";
-import { useLocation } from "react-router-dom";
-import { BiSearch } from "react-icons/bi";
 import ProfileImg from "./ProfileImg";
-import HeaderLinks from "./HeaderLinks";
 import ProfileDropdown from "./ProfileDropdown";
 
 function NavBar() {
-  const [active, setActive] = useState("home");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const url = ["/explore", "/profile"];
-  const conditionalLoc = url.includes(location.pathname);
-
-  function toggleDropdown() {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
+  const currentPath = location; 
   return (
-    <header>
-      <div className="container container-header">
-        <nav>
-          <div className="logo-bar">
-            <img
-              src="/1percent.png"
-              alt="logo"
-              className="w-[60px] md:w-[100px]"
-            />
-
-            {conditionalLoc ? (
-              <div className="gap-4 hidden md:flex">
-                <HeaderLinks path={"/home"} LinkName={"Home"} />
-                <HeaderLinks path={"/explore"} LinkName={"Explore"} />
-              </div>
-            ) : (
-              <div className="search-bar hidden md:inline-block">
-                <input type="text" placeholder="Type What You Want" />
-                <div className="icon-cover">
-                  <BiSearch className="search-icon" />
-                </div>
-              </div>
-            )}
+    <header className="bg-white shadow-sm">
+      <div className="max-w-7xl mx-auto px-4">
+        <nav className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link to="/home">
+              <img src="/1percent.png" alt="1percent logo" className="h-8 w-auto sm:h-10" />
+            </Link>
           </div>
-
-          <div className="profile-tools">
-            <div className="icons">
+          {/* Navigation Links */}
+          <div className="flex items-center space-x-4">
+            {/* Home Link */}
+            <Link
+              to="/home"
+              className={`p-2 rounded-lg ${
+                currentPath === "home" 
+                  ? "text-gray-900 bg-gray-100" 
+                  : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
               <Icon
                 FilledIcon={HiHome}
                 OutlinedIcon={HiOutlineHome}
-                isActive={active === "home"}
-                onClick={() => setActive("home")}
+                isActive={currentPath === "home"}
               />
-              <Icon
-                FilledIcon={HiBell}
-                OutlinedIcon={HiOutlineBell}
-                isActive={active === "notif"}
-                onClick={() => setActive("notif")}
-              />
-            </div>
+            </Link>
 
-            <div style={{ position: 'relative' }}>
-              <ProfileImg size={"30px"} onClick={toggleDropdown} />
-              <ProfileDropdown 
-                isOpen={isDropdownOpen} 
-                onClose={() => setIsDropdownOpen(false)} 
+            {/* Explore Link */}
+            <Link
+              to="/explore"
+              className={`p-2 rounded-lg ${
+                currentPath === "explore" 
+                  ? "text-gray-900 bg-gray-100" 
+                  : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              <Icon
+                FilledIcon={HiSearch}
+                OutlinedIcon={HiOutlineSearch}
+                isActive={currentPath === "explore"}
               />
+            </Link>
+
+            {/* Profile Button */}
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center focus:outline-none"
+              >
+                <ProfileImg size={"32px"} />
+              </button>
+              
+              {isDropdownOpen && (
+                <ProfileDropdown
+                  isOpen={isDropdownOpen}
+                  onClose={() => setIsDropdownOpen(false)}
+                />
+              )}
             </div>
           </div>
         </nav>
