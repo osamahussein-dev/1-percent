@@ -1,52 +1,30 @@
 import { useParams, Navigate } from "react-router-dom";
 import NotFound from "./NotFound";
 import UserProfile from "../components/UserProfile";
+import { useQuery } from "@tanstack/react-query";
+import api from "../api";
+
 
 function Profile() {
-  const { username } = useParams();
-  
-  const users = {
-    "osama.h": {
-      name: "Osama Hussein",
-      username: "@osama.h",
-      bio: "Programmer | Web Developer",
-      stats: {
-        cards: 3,
-        followers: 100,
-        following: 100
-      }
-    },
-    "mohammed.h": {
-      name: "Mohammed Hussein",
-      username: "@mohammed.h",
-      bio: "Mathematics Teacher | Education Enthusiast",
-      stats: {
-        cards: 5,
-        followers: 150,
-        following: 80
-      }
-    },
-    "anas.h": {
-      name: "Anas Hussein",
-      username: "@anas.h",
-      bio: "Physics Expert | Science Communicator",
-      stats: {
-        cards: 7,
-        followers: 200,
-        following: 120
-      }
-    }
-  };
+  const { id } = useParams();
 
-  if (username === "osama.h") {
-    return <Navigate to="/profile" replace />;
-  }
+  const { data: user, isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => api.get(`/users/${id}`),
+  });
 
-  if (username && !users[username]) {
+  const { data: posts = [] } = useQuery({
+    queryKey: ["posts"],
+    queryFn: () => api.get(`/posts?author_id=${id}`),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+
+  if (!user) {
     return <NotFound />;
   }
 
-  return <UserProfile username={username} users={users} />;
+  return <UserProfile user={user} posts={posts} />;
 }
 
 export default Profile; 

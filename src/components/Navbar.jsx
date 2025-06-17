@@ -5,8 +5,10 @@ import { MdTopic, MdOutlineTopic } from "react-icons/md";
 import Icon from "./Icon";
 import ProfileImg from "./ProfileImg";
 import ProfileDropdown from "./ProfileDropdown";
+import { jsonParse } from "../helpers";
 
 function NavBar() {
+  const loggedInUser = jsonParse(localStorage.getItem("user"));
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname.slice(1);
@@ -84,6 +86,7 @@ function NavBar() {
                 <ProfileDropdown
                   isOpen={isDropdownOpen}
                   onClose={() => setIsDropdownOpen(false)}
+                  id={loggedInUser?.id}
                 />
               )}
             </div>

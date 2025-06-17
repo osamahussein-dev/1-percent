@@ -11,19 +11,19 @@ function ProfileHeader({ userData, isOwnProfile }) {
             </div>
             <div className="text-center md:text-left flex-1">
               <h1 className="text-2xl font-bold text-gray-800">{userData.name}</h1>
-              <p className="text-gray-600 mt-1">{userData.username}</p>
-              <p className="text-gray-700 mt-2">{userData.bio}</p>
+              <p className="text-gray-600 mt-1">{userData.email}</p>
+              <p className="text-gray-700 mt-2">{userData.phone}</p>
               <div className="flex items-center justify-center md:justify-start gap-8 mt-4">
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.cards}</div>
+                  <div className="font-bold text-gray-800">{userData.stats.cards_count}</div>
                   <div className="text-sm text-gray-600">Cards</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.followers}</div>
+                  <div className="font-bold text-gray-800">{userData.stats.followers_count}</div>
                   <div className="text-sm text-gray-600">Followers</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-bold text-gray-800">{userData.stats.following}</div>
+                  <div className="font-bold text-gray-800">{userData.stats.following_count}</div>
                   <div className="text-sm text-gray-600">Following</div>
                 </div>
               </div>
