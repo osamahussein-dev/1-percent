@@ -71,7 +71,7 @@ function NavBar() {
               />
             </Link>
 
-            {/* Profile Img */}
+            {/* Profile Button */}
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}

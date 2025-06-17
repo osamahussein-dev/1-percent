@@ -10,6 +10,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { Settings } from "./pages/Settings";
 import Topics from "./pages/Topics";
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "./queryClient";
 
 function App() {
   const location = useLocation();
@@ -18,6 +20,7 @@ function App() {
 
   return (
     <div className="all-web">
+      <QueryClientProvider client={queryClient}>
       {shouldShowNav && <NavBar />}
       <div style={{ minHeight: "100vh" }}>
         <Routes>
@@ -34,6 +37,7 @@ function App() {
         </Routes>
       </div>
       {shouldShowNav && <Footer />}
+      </QueryClientProvider>
     </div>
   );
 }
