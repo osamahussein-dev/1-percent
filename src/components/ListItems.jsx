@@ -1,10 +1,11 @@
-const ListItems = ({ children, Icon, setState, value, selected }) => {
+const ListItems = ({Icon, value, selected, title, href, children}) => {
   const cond = selected === value;
 
   return (
     <li>
       {Icon ? <Icon className="icon-style" /> : null}
-      {children}
+      {href ? <a href={href}>{title}</a> : null}
+      {children ? children : null}
     </li>
   );
 };

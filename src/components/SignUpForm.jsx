@@ -26,7 +26,7 @@ function SignUpForm() {
               <input
                 type="email"
                 id="email"
-                placeholder="you@example.com"
+                placeholder="you@gmail.com"
                 required
               />
             </div>

@@ -8,12 +8,12 @@ import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import { Settings } from "./pages/Settings";
 
 function App() {
   const location = useLocation();
   const hideNavOn = ["/", "/signin", "/signup"];
   const shouldShowNav = !hideNavOn.includes(location.pathname);
-  console.log(location.pathname);
 
   return (
     <div className="all-web">
@@ -27,6 +27,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/:username" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
