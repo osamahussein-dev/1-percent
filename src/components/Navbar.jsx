@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiHome, HiOutlineHome, HiSearch, HiOutlineSearch } from "react-icons/hi";
+import { MdTopic, MdOutlineTopic } from "react-icons/md";
 import Icon from "./Icon";
 import ProfileImg from "./ProfileImg";
 import ProfileDropdown from "./ProfileDropdown";
@@ -8,7 +9,8 @@ import ProfileDropdown from "./ProfileDropdown";
 function NavBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const currentPath = location; 
+  const currentPath = location.pathname.slice(1);
+
   return (
     <header className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
@@ -53,7 +55,23 @@ function NavBar() {
               />
             </Link>
 
-            {/* Profile Button */}
+            {/* Topics Link */}
+            <Link
+              to="/topics"
+              className={`p-2 rounded-lg ${
+                currentPath === "topics" 
+                  ? "text-gray-900 bg-gray-100" 
+                  : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              <Icon
+                FilledIcon={MdTopic}
+                OutlinedIcon={MdOutlineTopic}
+                isActive={currentPath === "topics"}
+              />
+            </Link>
+
+            {/* Profile Img */}
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
