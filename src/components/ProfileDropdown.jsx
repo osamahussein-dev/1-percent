@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function ProfileDropdown({ isOpen, onClose }) {
+function ProfileDropdown({ isOpen, onClose, id }) {
+  const navigate = useNavigate();
   if (!isOpen) return null;
+
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/signin");
+  }
 
   return (
     <>
@@ -15,7 +21,7 @@ function ProfileDropdown({ isOpen, onClose }) {
         </div>
         <div className="py-2">
           <Link 
-            to="/profile" 
+            to={`/profile/${id}`} 
             className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
           >
             <span className="material-icons text-gray-500 mr-3 text-xl">person</span>
@@ -29,7 +35,7 @@ function ProfileDropdown({ isOpen, onClose }) {
             Settings
           </Link>
           <button 
-            onClick={onClose} 
+            onClick={onLogout} 
             className="flex items-center w-full px-4 py-3 text-sm text-red-600 hover:bg-gray-50 cursor-pointer"
           >
             <span className="material-icons text-red-600 mr-3 text-xl">logout</span>

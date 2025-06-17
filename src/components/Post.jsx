@@ -3,9 +3,25 @@ import ProfileImg from "./ProfileImg";
 import "../css/post.css";
 import PostTools from "./PostTools";
 import { getTimeAgo } from "../utils/timeUtils";
+import { jsonParse } from "../helpers";
+import { MdDeleteOutline } from "react-icons/md";
+import { useMutation } from "@tanstack/react-query";
+import api from "../api";
+import queryClient from "../queryClient";
 
 function Post({ post }) {
+  const loggedInUser = jsonParse(localStorage.getItem("user"));
+  const isAdmin = loggedInUser?.role === "admin";
+  const isOwnPost = loggedInUser?.id === post?.author_id;
   const createdAt = post?.created_at || new Date();
+  const { mutateAsync: deletePost } = useMutation({
+    mutationFn: (id) => api.delete(`/posts/${id}`),
+  });
+
+  const handleDelete = async (id) => {
+    await deletePost(id);
+    queryClient.invalidateQueries({ queryKey: ["posts"] });
+  };
 
   return (
     <div className="post w-full">
@@ -21,7 +37,7 @@ function Post({ post }) {
           </div>
         </div>
 
-        <BiDotsVerticalRounded />
+         {(isAdmin || isOwnPost) && <MdDeleteOutline onClick={() => handleDelete(post?.id)} />}
       </div>
 
       <div className="post-content">

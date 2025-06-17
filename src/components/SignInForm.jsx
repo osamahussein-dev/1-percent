@@ -14,7 +14,7 @@ function SignInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await api.post("/auth/login", form);
+      const data = await api.post("/auth/login", form);
       localStorage.setItem("user", JSON.stringify(data));
       navigate("/home");
     } catch (err) {
