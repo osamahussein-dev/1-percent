@@ -8,12 +8,6 @@ import {
     differenceInSeconds,
   } from "date-fns";
   
-  /**
-   * Return a compact “n y / n mo / n d / n h / n m / just now” string.
-   *
-   * @param {Date|string|number} date – Any value accepted by new Date().
-   * @returns {string}
-   */
   export function getTimeAgo(date) {
     const now   = new Date();
     const input = new Date(date);
