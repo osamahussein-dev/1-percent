@@ -1,6 +1,6 @@
 import { MdPrivacyTip } from "react-icons/md";
 import ListItemsselect from "../components/ListItemsselect";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/Sidebar";
 import { BiSolidUser } from "react-icons/bi";
 import { HiPaintBrush } from "react-icons/hi2";
 import SettCover from "../components/SettCover";
