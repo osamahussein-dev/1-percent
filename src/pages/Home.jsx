@@ -1,6 +1,6 @@
 import Content from "../components/Content";
 import Follow from "../components/Follow";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/Sidebar";
 import SideList from "../components/SideList";
 import Suggestions from "../components/Suggestions";
 import AdviceCard from "../components/AdviceCard";
