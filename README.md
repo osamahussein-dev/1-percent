@@ -1,12 +1,78 @@
-# React + Vite
+# 1 Percent - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern social media platform built with React and Vite that allows users to share posts, interact with others, and explore content based on topics.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Authentication & Access
+- User registration with form validation
+- Secure login system
+- Persistent sessions using local storage
+- Profile management and secure logout
 
-## Expanding the ESLint configuration
+### Post Management
+- Create posts with topics, title, and content
+- View personal and other users' posts
+- Like/unlike functionality
+- Comment system
+- Post deletion (for post owners)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Topics & Discovery
+- Browse posts by topics
+- Explore page with topic-based filtering
+- Curated advice from third-party API
+
+### Profile & Social Features
+- View personal and other user profiles
+- Follow/unfollow system (in development)
+- Profile statistics (posts count, followers, following)
+
+### Settings & Customization
+- Profile information management (name, email, phone)
+- Password change functionality
+- Theme customization (in development)
+
+## Tech Stack
+- React
+- Vite
+- React Query
+- Axios
+- React Router DOM
+- TailwindCSS
+- React Icons
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [https://github.com/osamahussein-dev/1-percent]
+cd 1-percent
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory:
+```
+VITE_API_BASE_URL=http://localhost:3000/api
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Building for Production
+```bash
+npm run build
+```
